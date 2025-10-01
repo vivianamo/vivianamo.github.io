@@ -1,0 +1,312 @@
+/* CSS custom properties or CSS variables
+
+It's a way to store a value once and reuse it. --bg is the variable name, and the value it stores.
+
+You can use it with the var function. var(--bg) and it points to what is in that value. */
+
+
+
+/* Change the scroll bar to a nicer color. */
+
+
+:root {
+  --dark-color: rgb(30, 30, 40, 1);
+  --light-color: white;
+  --bg: var(--light-color);
+  --text: var(--dark-color);
+  --nav-bg: white;
+  --link: #00a0c6;
+  --dark-mode-time: 0.3s;
+}
+
+/* This is to add a fade in and out transition for whenever the dark-mode toggle is switched on */
+
+body,
+#navbar,
+h1,
+h2,
+h3,
+.nav-container,
+a,
+a:hover,
+.card {
+  transition: background-color var(--dark-mode-time) ease,
+    color var(--dark-mode-time) ease;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--text);
+  line-height: 1.2;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+main {
+  line-height: 1.6;
+  /* sets a maximum width of an element */
+  max-width: 650px;
+  font-size: 18px;
+  /* auto is horizontally centered in this case. Another way to put it, could be margin: 20px auto 20px auto;
+  */
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+h2 {
+  margin-bottom: 1px;
+}
+
+p {
+  margin: 1;
+}
+
+/* CSS variables are dynamic, so now the --text and --bg will change automatically */
+body.dark-mode {
+  --bg: var(--dark-color);
+  --text: var(--light-color);
+}
+
+.source-code-pro-heading {
+  font-family: "Source Code Pro", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700; /* bold */
+  font-style: normal;
+}
+
+.source-code-pro-body {
+  font-family: "Source Code Pro", monospace;
+  /* When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes. */
+  font-optical-sizing: auto;
+  font-weight: 450; /* light */
+  font-style: normal;
+}
+
+.inconsolata-heading {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 700; /* bold */
+  font-style: normal;
+}
+
+.inconsolata-body {
+  font-family: "Inconsolata", monospace;
+  font-optical-sizing: auto;
+  font-weight: 500; /* light */
+  font-style: normal;
+}
+
+#navbar {
+  /* TODO fix the home being a different size for some reason */
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem 1rem 1rem 0rem;
+  margin: 0;
+  /* navbar covers full width */
+  width: 100vw;
+}
+
+.nav-gradient {
+  /* BELOW IS A GRADIENT */
+  /*************************************************************/
+  /* backgrounds are not separate layers with their own z-index, they are always painted at the very bottom of the element's box */
+  background: linear-gradient(to bottom, var(--bg), transparent 100%);
+  /* By default, elements later in the DOM(and with shadows) can appear above others unless you control the layer with the z-index */
+  /* BTW z-index only works on stuff that have position other than static(relative, absolute, fixed, sticky) */
+  /* This z-iondex is compared with the sibling elements in the dom like main or footer. */
+  z-index: 1000;
+
+  /* BELOW IS THE BLUR */
+  /***********************************************************/
+  /* TO add BLUR */
+  backdrop-filter: blur(10px);
+  /* Safari Blur */
+  -webkit-backdrop-filter: blur(6px);
+
+  /* Fade the blur bottom -> top */
+  /* Mask image, lets you control visibility of an element with an image or gradient. Black = fully visible, transparent - fully hidden, gray = partial. */
+  -webkit-mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
+  /* no repeat, because we want a single fade */
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+
+  mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* ::before is a pseudo-element, it lets you insert extra content before the real content of an element */
+/* .nav-gradient::before { */
+/* The containing block is typically the nearest positioned ancestor */
+/* position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    hsl(344, 100%, 50%),
+    hsl(31, 100%, 40%)
+  ); */
+/* This z-index is in the same stacking context within the nav-gradient, not all the elemnets on the page.*/
+/* z-index: -1;
+  transition: opacity 0.5s linear;
+  opacity: 0;
+} */
+
+.nav-gradient::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    var(--dark-color) 0%,
+    transparent 100%
+  );
+  /* This z-index is in the same stacking context within the nav-gradient, not all the elemnets on the page.*/
+  z-index: -1;
+  transition: opacity var(--dark-mode-time) ease;
+  opacity: 0;
+}
+
+.nav-gradient.dark-mode::before {
+  /* The opacity of the before element is becoming visible */
+  opacity: 1;
+}
+
+/* THIS DESCRIBES THE STUFF INSIDE THE NAVBAR, LIKE TEXT AND SPACING */
+.nav-container {
+  /*  Top, right, bottom, left */
+  /* rem means, the root font size, so if it is 18, 2 rem is 36  I made it so that there is no padding on the left*/
+  /* below adds a gap */
+  padding: 0 10px;
+  margin: 0 auto;
+  max-width: 650px;
+  display: flex;
+  gap: 0.8rem;
+  color: var(--text);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+  background-color: transparent;
+}
+
+a:hover {
+  color: #00a0c6;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.work {
+  margin-bottom: 2px;
+}
+
+.role {
+  margin-top: 0;
+  margin-bottom: 0px;
+  font-size: 16px;
+  /* if line-height is too small, then it might wrap wrong */
+  opacity: 0.6;
+}
+
+.role-desc {
+  margin: 0;
+  padding: 0;
+}
+
+/* https://www.w3schools.com/howto/howto_css_cards.asp */
+.card {
+  padding: 10px 0px 0px 0px;
+  /* Add shadows to create the "card" effect */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  /* 5px rounded corners */
+  /* border-radius: 5px;  */
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+  padding: 2px 16px;
+}
+
+.links {
+  display: flex;
+  gap: 0.8rem;
+  /* By default flex, makes it so it doesn't automatically wrap children to fix, you can let links wrap inside the card */
+  flex-wrap: wrap;
+}
+
+.dark-mode-button {
+  font-size: 18px;
+  background-color: transparent;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 0 rgb(97, 97, 97);
+  transition: 0.3s;
+}
+
+.dark-mode-button:hover {
+  color: transparent;
+  text-shadow: 0 0 0 rgba(0, 0, 0);
+}
+
+.wrap {
+  flex-wrap: wrap;
+  /* Some things that stop text from wrapping are
+  white-space: nowrap;
+  overflow:hidden; */
+  /* allow wrapping */
+  white-space: normal;
+  /* breaks long words/urls if needed */
+  word-wrap: break-word;
+  /* modern version of word-wrap */
+  overflow-wrap: anywhere;
+}
+
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+}
+
+
+/* TODO Make this less loud later! */
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar-track {
+  background: var(--bg); /* Light gray track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text); /* Gray thumb */
+}
+
+/* Optional hover effect */
+::-webkit-scrollbar-thumb:hover {
+  background: #888; /* Darker gray on hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-color: var(--text) var(--bg); /* thumb color, track color */
+  scrollbar-width: auto; /* keeps default size */
+}
