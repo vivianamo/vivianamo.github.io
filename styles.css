@@ -168,9 +168,14 @@ span,
   opacity: 0;
 } */
 
+.blog-post {
+}
+
+
 img {
     
     max-width: 650px;
+    width: 100%;
     /*keeps aspect ratio*/
     height: auto;
 }

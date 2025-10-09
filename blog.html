@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="navbar" class="inconsolata-body">
-        <a href="index.html">Home   </a>
-        <a href="blog.html">Blog   </a>
-        <a href="#projects">Projects </a>
-        <!-- If taking to another page/section use an <a>. If clicking should do something on the page(open a menu, toggle dark mode, play a sound, use a <button>) -->
-        <button>🌙</button>
-      </div>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Viviana Moro-Ochoa Portfolio</title>
+    <!-- Source Code Pro & Fira Code & Inconsolata Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+          rel="stylesheet" />
+    <!-- Handwritten -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
-    <div>
-        <a href="blog/BlackMesa">How Black Mesa Makes Us Feel</a>
-        <div>
-            <span>March 6, 2023</span>
+    <link href="styles.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+</head>
+<body id="home" class="">
+    <!-- TODO animate the going back to home section thing like a nice sliding thing or something also keep in mind the use case, if on another webpage, it has to link back to this webpage? -->
+    <div id="navbar" class="inconsolata-body nav-gradient">
+        <div class="nav-container">
+            <a href="#home">Home </a>
+            <a href="blog.html">Blog </a>
+            <!-- <a href="#projects">Projects </a> -->
+            <!-- If taking to another page/section use an <a>. If clicking should do something on the page(open a menu, toggle dark mode, play a sound, use a <button>) -->
+            <button class="dark-mode-button" onclick="toggleDarkMode()">
+                🌜&#xFE0E;
+            </button>
         </div>
     </div>
+    <main>
+
+        <div class="blog-item">
+            <a href="blog/BlackMesa">How Black Mesa Makes Us Feel</a>
+            <div>            
+                <span>March 6, 2023</span>
+            </div>
+
+        </div>
+    </main>
 </body>
 </html>
