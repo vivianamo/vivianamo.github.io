@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Viviana Moro-Ochoa Portfolio</title>
+    <!-- Source Code Pro & Fira Code & Inconsolata Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Handwritten -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <link href="styles.css" rel="stylesheet" />
+    <script src="script.js" defer></script>
+  </head>
+  <body id="home" class="">
+    <!-- TODO animate the going back to home section thing like a nice sliding thing or something also keep in mind the use case, if on another webpage, it has to link back to this webpage? -->
+    <div id="navbar" class="inconsolata-body nav-gradient">
+      <div class="nav-container">
+        <a href="#home">Home </a>
+        <!-- <a href="blog.html">Blog </a> -->
+        <!-- <a href="#projects">Projects </a> -->
+        <!-- If taking to another page/section use an <a>. If clicking should do something on the page(open a menu, toggle dark mode, play a sound, use a <button>) -->
+        <button class="dark-mode-button" onclick="toggleDarkMode()">
+          🌜&#xFE0E;
+        </button>
+      </div>
+    </div>
+    <!-- The main and body should be separated, so that the navbar can have its own margins -->
+    <main>
+      <h1 class="inconsolata-heading">Viviana Moro-Ochoa</h1>
+      <div>
+        <p class="inconsolata-body gradient">
+          I'm a <i>lover of learning</i>, who is an aspiring IT professional. My
+          experience ranges from troubleshooting day-to-day problems and finding
+          solutions that actually help people. I also love getting in the weeds
+          and truly understanding something and sharing that with other people.
+        </p>
+        <!-- TODO add a background thing that like changes a bit with time,
+          like i saw someone do a tree branch, we could do like a plant swaying
+          in the background and it can fade in or something. i don't know? -->
+        <p class="inconsolata-body"></p>
+      </div>
+      <div>
+        <p class="inconsolata-body"></p>
+      </div>
+      <div class="card">
+        <div class="container">
+          <!-- github svg icon site:github.com -->
+          <div class="inconsolata-body links">
+            <a href="#home">Email</a>
+            <!-- target="blank" tells the browser to open the link in a new tab rel="noopener noreferrer" prevents the new page from being able to mess with the tab that opened it-->
+            <a
+              href="https://www.linkedin.com/in/vivianamoro-ochoa/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <a href="https://github.com/vivianamo" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <!-- <a href="#GitHub">Twitter</a> -->
+            <!-- <a href="#GitHub">Twitch</a> -->
+            <!-- <a href="#GitHub">Discord</a> -->
+            <!-- <a href="#GitHub">YouTube</a> -->
+          </div>
+          <p class="inconsolata-body wrap">
+            Reach me at vivianamoroochoa@gmail.com
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2 class="source-code-pro-heading">
+          🍀&#xFE0E;Certifications
+        </h2>
+        <!-- Google IT Support -->
+        <p class="source-code-pro-body">CompTIA A+(in progress)</p>
+        <!-- <p class="source-code-pro-body">CompTIA Network+(in progress)</p> -->
+      </div>
+      <div>
+        <h2 class="source-code-pro-heading">🍀&#xFE0E;Technical Skills</h2>
+        <p class="source-code-pro-body">
+          Systems, Networks, SQL, WinSCP, Relational Modeling, Entity Relationship Diagram
+          Modeling, C++, HTML, CSS, JavaScript
+        </p>
+      </div>
+      <div>
+        <!-- <h2 class="source-code-pro-heading">Projects</h2> -->
+      <div>
+        <!-- <p class="indie-flower-regular">Sketchbook</p> -->
+      </div>
+        <!-- YouTube Tech channel -->
+        <!-- Personal Website -->
+        <!-- Dance Studio's Website -->
+        <!-- Home Lab Projects -->
+        <!-- <h3 class="source-code-pro-heading">Documentation & Guides</h3> -->
+        <!-- How to Download mp4s for youtube safely -->
+        <!-- Account Security For YouTubers -->
+      </div>
+      <div>
+        <h2 class="source-code-pro-heading">🍀&#xFE0E;Work</h2>
+        <h3 class="work source-code-pro-heading">
+          Visual Novel- Divinity Games
+        </h3>
+        <p class="role wrap source-code-pro-body">
+          Lead Artist (Nov 2024 - present)
+        </p>
+        <p class="role-desc inconsolata-body">
+          Designed character designs, 3D backgrounds, and finalizing 2D assets.
+        </p>
+        <!-- Freelance Web Dev, for local companies -->
+      </div>
+      <div>
+        <!-- <h2 class="source-code-pro-heading">🍀&#xFE0E;Blog</h2> -->
+      </div>
+    </main>
+  </body>
+</html>
