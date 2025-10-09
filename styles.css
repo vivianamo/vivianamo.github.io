@@ -72,6 +72,8 @@ body.dark-mode {
   --text: var(--light-color);
 }
 
+h2,
+h3,
 .source-code-pro-heading {
   font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
@@ -87,6 +89,7 @@ body.dark-mode {
   font-style: normal;
 }
 
+h1,
 .inconsolata-heading {
   font-family: "Inconsolata", monospace;
   font-optical-sizing: auto;
@@ -94,6 +97,8 @@ body.dark-mode {
   font-style: normal;
 }
 
+p,
+span,
 .inconsolata-body {
   font-family: "Inconsolata", monospace;
   font-optical-sizing: auto;
@@ -163,6 +168,13 @@ body.dark-mode {
   opacity: 0;
 } */
 
+img {
+    
+    max-width: 650px;
+    /*keeps aspect ratio*/
+    height: auto;
+}
+
 .nav-gradient::before {
   position: absolute;
   content: "";
@@ -215,6 +227,7 @@ a:hover {
   margin-bottom: 2px;
 }
 
+.caption,
 .role {
   margin-top: 0;
   margin-bottom: 0px;
