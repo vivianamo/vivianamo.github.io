@@ -97,6 +97,7 @@ h1,
   font-style: normal;
 }
 
+a,
 p,
 span,
 .inconsolata-body {
@@ -168,7 +169,9 @@ span,
   opacity: 0;
 } */
 
-.blog-post {
+.blog-item {
+    display: flex;
+    justify-content: space-between;
 }
 
 
