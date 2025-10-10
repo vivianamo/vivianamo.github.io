@@ -1,14 +1,4 @@
-/* CSS custom properties or CSS variables
-
-It's a way to store a value once and reuse it. --bg is the variable name, and the value it stores.
-
-You can use it with the var function. var(--bg) and it points to what is in that value. */
-
-
-
-/* Change the scroll bar to a nicer color. */
-
-
+/* This is to add a fade in and out transition for whenever the dark-mode toggle is switched on */
 :root {
   --dark-color: rgb(30, 30, 40, 1);
   --light-color: white;
@@ -18,8 +8,6 @@ You can use it with the var function. var(--bg) and it points to what is in that
   --link: #00a0c6;
   --dark-mode-time: 0.3s;
 }
-
-/* This is to add a fade in and out transition for whenever the dark-mode toggle is switched on */
 
 body,
 #navbar,
@@ -52,8 +40,6 @@ main {
   /* sets a maximum width of an element */
   max-width: 650px;
   font-size: 18px;
-  /* auto is horizontally centered in this case. Another way to put it, could be margin: 20px auto 20px auto;
-  */
   margin: 20px auto;
   padding: 0 10px;
 }
@@ -66,7 +52,7 @@ p {
   margin: 1;
 }
 
-/* CSS variables are dynamic, so now the --text and --bg will change automatically */
+
 body.dark-mode {
   --bg: var(--dark-color);
   --text: var(--light-color);
@@ -83,7 +69,7 @@ h3,
 
 .source-code-pro-body {
   font-family: "Source Code Pro", monospace;
-  /* When optical sizing is used, small text sizes are often rendered with thicker strokes and larger serifs, whereas larger text is often rendered more delicately with more contrast between thicker and thinner strokes. */
+  
   font-optical-sizing: auto;
   font-weight: 450; /* light */
   font-style: normal;
@@ -108,7 +94,6 @@ span,
 }
 
 #navbar {
-  /* TODO fix the home being a different size for some reason */
   font-size: 18px;
   position: sticky;
   top: 0;
@@ -121,69 +106,23 @@ span,
 }
 
 .nav-gradient {
-  /* BELOW IS A GRADIENT */
-  /*************************************************************/
-  /* backgrounds are not separate layers with their own z-index, they are always painted at the very bottom of the element's box */
-  background: linear-gradient(to bottom, var(--bg), transparent 100%);
-  /* By default, elements later in the DOM(and with shadows) can appear above others unless you control the layer with the z-index */
-  /* BTW z-index only works on stuff that have position other than static(relative, absolute, fixed, sticky) */
-  /* This z-iondex is compared with the sibling elements in the dom like main or footer. */
-  z-index: 1000;
+    /* BELOW IS A GRADIENT */
+    background: linear-gradient(to bottom, var(--bg), transparent 100%);
+    z-index: 1000;
+    /* BELOW IS THE BLUR */
 
-  /* BELOW IS THE BLUR */
-  /***********************************************************/
-  /* TO add BLUR */
-  backdrop-filter: blur(10px);
-  /* Safari Blur */
-  -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(10px);
+    /* Safari Blur */
+    -webkit-backdrop-filter: blur(6px);
 
-  /* Fade the blur bottom -> top */
-  /* Mask image, lets you control visibility of an element with an image or gradient. Black = fully visible, transparent - fully hidden, gray = partial. */
-  -webkit-mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
-  /* no repeat, because we want a single fade */
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-size: 100% 100%;
-
-  mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
-  mask-repeat: no-repeat;
-  mask-size: 100% 100%;
+    -webkit-mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
+    /* no repeat, because we want a single fade */
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 100% 100%;
+    mask-image: linear-gradient(to bottom, gray 40%, transparent 100%);
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
 }
-
-/* ::before is a pseudo-element, it lets you insert extra content before the real content of an element */
-/* .nav-gradient::before { */
-/* The containing block is typically the nearest positioned ancestor */
-/* position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: linear-gradient(
-    to bottom,
-    hsl(344, 100%, 50%),
-    hsl(31, 100%, 40%)
-  ); */
-/* This z-index is in the same stacking context within the nav-gradient, not all the elemnets on the page.*/
-/* z-index: -1;
-  transition: opacity 0.5s linear;
-  opacity: 0;
-} */
-
-.blog-item {
-    display: flex;
-    justify-content: space-between;
-    flex-shrink: 0; /* prevent it from compressing */
-}
-
-.blog-item a {
-    word-wrap: break-word;
-}
-
-.blog-item span {
-    white-space: nowrap;
-}
-
-
 
 
 img {
@@ -217,11 +156,9 @@ img {
   opacity: 1;
 }
 
-/* THIS DESCRIBES THE STUFF INSIDE THE NAVBAR, LIKE TEXT AND SPACING */
+
 .nav-container {
-  /*  Top, right, bottom, left */
-  /* rem means, the root font size, so if it is 18, 2 rem is 36  I made it so that there is no padding on the left*/
-  /* below adds a gap */
+
   padding: 0 10px;
   margin: 0 auto;
   max-width: 650px;
@@ -247,15 +184,15 @@ a:hover {
 }
 
 .caption,
-.role {
+.subtitle {
   margin-top: 0;
   margin-bottom: 0px;
   font-size: 16px;
-  /* if line-height is too small, then it might wrap wrong */
+
   opacity: 0.6;
 }
 
-.role-desc {
+.subtitle-desc {
   margin: 0;
   padding: 0;
 }
@@ -283,7 +220,7 @@ a:hover {
 .links {
   display: flex;
   gap: 0.8rem;
-  /* By default flex, makes it so it doesn't automatically wrap children to fix, you can let links wrap inside the card */
+  
   flex-wrap: wrap;
 }
 
@@ -303,10 +240,6 @@ a:hover {
 
 .wrap {
   flex-wrap: wrap;
-  /* Some things that stop text from wrapping are
-  white-space: nowrap;
-  overflow:hidden; */
-  /* allow wrapping */
   white-space: normal;
   /* breaks long words/urls if needed */
   word-wrap: break-word;
@@ -322,7 +255,6 @@ a:hover {
 }
 
 
-/* TODO Make this less loud later! */
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar-track {
   background: var(--bg); /* Light gray track */
@@ -342,3 +274,20 @@ a:hover {
   scrollbar-color: var(--text) var(--bg); /* thumb color, track color */
   scrollbar-width: auto; /* keeps default size */
 }
+
+
+
+/*For blog.index*/
+.blog-item {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0; /* prevent it from compressing */
+}
+
+    .blog-item a {
+        word-wrap: break-word;
+    }
+
+    .blog-item span {
+        white-space: nowrap;
+    }
